@@ -85,7 +85,7 @@ namespace DB.Query.InterpretCode.Factorys
             return new DBQueryStepModel
             {
                 StepType = StepType.SELECT,
-                Documentation = "Reponsável por chamar a etapa select de uma consulta SIMPLES. Retornando apenas os dados da entidade passada como tipo na propriedade Repository<TEntity>."
+                Documentation = "Reponsável por chamar a etapa select de uma consulta SIMPLES. Retornando apenas os dados da entidade passada como tipo na propriedade Query<TEntity>."
             };
         }
 

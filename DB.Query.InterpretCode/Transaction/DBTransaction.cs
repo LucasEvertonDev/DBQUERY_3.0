@@ -199,9 +199,9 @@ namespace DB.Query.InterpretCode.Transaction
         /// <returns></returns>
         public virtual Query<T> Query<T>(string tableName) where T : EntityBase
         {
-            var repository = Activator.CreateInstance<Query<T>>();
-            repository.BindTransaction(this);
-            return repository;
+            var query = Activator.CreateInstance<Query<T>>();
+            query.BindTransaction(this);
+            return query;
         }
 
         /// <summary>
@@ -209,7 +209,7 @@ namespace DB.Query.InterpretCode.Transaction
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public virtual T GetSpecificRepository<T>()
+        public virtual T GetRepository<T>()
         {
             var repository = Activator.CreateInstance<T>();
             MethodInfo m = repository.GetType().GetMethod("BindTransaction");

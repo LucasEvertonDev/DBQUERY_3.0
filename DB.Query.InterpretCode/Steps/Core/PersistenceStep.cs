@@ -67,7 +67,7 @@ namespace DB.Query.InterpretCode.Steps.Core
             {
                 if (_transaction == null)
                 {
-                    throw new Exception("Transação nula. Setar a transação do repository BindTransaction()");
+                    throw new Exception("Transação nula. Setar a transação do query BindTransaction()");
                 }
 
                 VerifyChangeDataBase();
@@ -108,7 +108,7 @@ namespace DB.Query.InterpretCode.Steps.Core
             {
                 if (_transaction == null)
                 {
-                    throw new Exception("Transação nula. Setar a transação do repository BindTransaction()");
+                    throw new Exception("Transação nula. Setar a transação do query BindTransaction()");
                 }
 
                 await VerifyChangeDataBaseAsync();

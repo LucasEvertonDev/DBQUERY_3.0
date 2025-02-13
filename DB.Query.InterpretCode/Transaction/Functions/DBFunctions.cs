@@ -325,7 +325,7 @@ namespace DB.Query.InterpretCode.Transaction.Functions
         protected T CONCAT<T>(params string[] param) => default;
 
         /// <summary>
-        /// 
+        /// _ => Default name or use name of parameter expression 
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="func"></param>

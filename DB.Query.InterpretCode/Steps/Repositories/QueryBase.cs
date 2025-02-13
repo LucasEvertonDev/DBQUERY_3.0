@@ -24,7 +24,7 @@ namespace DB.Query.InterpretCode.Steps.Repositories
         ///     <para><see href="https://dev.azure.com/DevTeamFivenBR/IT%20Fiven%20BR/_git/SIGN%20QUERY?version=GBmain">Consulte a documentação.</see></para>
         ///     <para><see cref="InterpretInsertService{TEntity}.GenerateInsertScript()">Navegue para o método de geração script.</see></para>
         /// </summary>
-        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe Repository.</param>
+        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe query.</param>
         /// <returns>
         ///     Retorno do tipo InsertStep, responsável por garantir o controle da próxima etapa. Impedindo que esse método seja novamente chamado na mesma operação
         /// </returns>
@@ -67,7 +67,7 @@ namespace DB.Query.InterpretCode.Steps.Repositories
         ///     <para><see href="https://dev.azure.com/DevTeamFivenBR/IT%20Fiven%20BR/_git/SIGN%20QUERY?version=GBmain">Consulte a documentação.</see></para> 
         ///     <para><see cref="InterpretUpdateService{TEntity}.GenerateUpdateScript">Navegue para o método de geração script.</see></para>
         /// </summary>
-        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe Repository.</param>
+        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe query.</param>
         /// <returns>
         ///     Retorno do tipo UpdateStep, responsável por garantir o controle da próxima etapa. Impedindo que esse método seja novamente chamado na mesma operação.
         /// </returns>
@@ -82,7 +82,7 @@ namespace DB.Query.InterpretCode.Steps.Repositories
         ///     <para><see href="https://dev.azure.com/DevTeamFivenBR/IT%20Fiven%20BR/_git/SIGN%20QUERY?version=GBmain">Consulte a documentação.</see></para> 
         ///     <para><see cref="InterpretInsertService{TEntity}.GenerateInsertIfNotExistsScript">Navegue para o método de geração script.</see></para>
         /// </summary>
-        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe Repository.</param>
+        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe query.</param>
         /// <returns>
         ///     Retorno do tipo InsertStep, responsável por garantir o controle da próxima etapa. Impedindo que esse método seja novamente chamado na mesma operação.
         /// </returns>
@@ -98,7 +98,7 @@ namespace DB.Query.InterpretCode.Steps.Repositories
         ///     <para><see href="https://dev.azure.com/DevTeamFivenBR/IT%20Fiven%20BR/_git/SIGN%20QUERY?version=GBmain">Consulte a documentação.</see></para> 
         ///     <para><see cref="InterpretUpdateService{TEntity}.GenerateInsertOrUpdateScript">Navegue para o método de geração script.</see></para>
         /// </summary>
-        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe Repository.</param>
+        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe query.</param>
         /// <returns>
         ///     Retorno do tipo UpdateStep, responsável por garantir o controle da próxima etapa. Impedindo que esse método seja novamente chamado na mesma operação.
         /// </returns>
@@ -113,7 +113,7 @@ namespace DB.Query.InterpretCode.Steps.Repositories
         ///     <para><see href="https://dev.azure.com/DevTeamFivenBR/IT%20Fiven%20BR/_git/SIGN%20QUERY?version=GBmain">Consulte a documentação.</see></para> 
         ///     <para><see cref="InterpretDeleteService{TEntity}.GenerateDeleteAndInsertScript">Navegue para o método de geração script.</see></para>
         /// </summary>
-        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe Repository.</param>
+        /// <param name="domain">Parametro do tipo TEntity, passado como tipo na instância da classe query.</param>
         /// <returns>
         ///     Retorno do tipo DeleteStep, responsável por garantir o controle da próxima etapa. Impedindo que esse método seja novamente chamado na mesma operação.
         /// </returns>
@@ -760,7 +760,7 @@ namespace DB.Query.InterpretCode.Steps.Repositories
         }
 
         /// <summary>
-        /// Responsavável por colocar o repository em questão na transação corrente.
+        /// Responsavável por colocar o query em questão na transação corrente.
         /// </summary>
         /// <param name="dataBaseService"></param>
         /// <returns></returns>
