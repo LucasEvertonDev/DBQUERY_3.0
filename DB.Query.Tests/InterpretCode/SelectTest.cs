@@ -1,5 +1,8 @@
 ﻿using DB.Query.Core;
-using DB.Query.Tests.Domain;
+using DB.Query.Tests.Domain.AuthDb;
+using DB.Query.Tests.Domain.CommercialDB;
+using DB.Query.Tests.Domain.FinanceDB;
+using DB.Query.Tests.Domain.LogisticDB;
 using DB.Query.Tests.Helpers;
 using DB.Query.Utils.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

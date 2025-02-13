@@ -2,7 +2,7 @@
 
 namespace DB.Query
 {
-    public static class DBQuery
+    public static class DBQueryStarter
     {
         public static void Use(string dbConnection, string auditLogsTable = null)
         {

@@ -1,8 +1,7 @@
 ﻿using DB.Query.Core.Annotations;
 using DB.Query.Core.Annotations.Entity;
-using DB.Query.Tests.Domain.Databases;
 
-namespace DB.Query.Tests.Domain
+namespace DB.Query.Tests.Domain.CommercialDB
 {
     [Table("OrderItem")]
     public class OrderItem : LogisticDB

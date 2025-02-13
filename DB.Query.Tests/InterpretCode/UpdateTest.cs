@@ -1,5 +1,5 @@
 ﻿using DB.Query.Core;
-using DB.Query.Tests.Domain;
+using DB.Query.Tests.Domain.AuthDb;
 using DB.Query.Tests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

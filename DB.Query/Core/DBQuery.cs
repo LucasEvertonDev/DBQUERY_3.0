@@ -1,9 +1,9 @@
-﻿using DB.Query.Core.Functions;
-using DB.Query.Core.Models;
+﻿using DB.Query.Core.Models;
 using System.Data;
 using System.Threading.Tasks;
 using System;
 using DB.Query.InterpretCode.Transaction;
+using DB.Query.InterpretCode.Transaction.Functions;
 
 namespace DB.Query.Core
 {
@@ -190,6 +190,44 @@ namespace DB.Query.Core
             {
                 alreadyOpen = false;
                 return Activator.CreateInstance<DBTransaction>();
+            }
+        }
+    }
+
+    public class DBQuery
+    {
+        /// <summary>
+        /// 
+        /// <param name="func"></param>
+        public static void OnTransaction(Action<DBTransaction> func)
+        {
+            bool alreadyOpen = false;
+            var _dbTransaction =  Activator.CreateInstance<DBTransaction>();
+            try
+            {
+                _dbTransaction.OpenTransaction(DbQueryConfiguration.SqlConnection);
+                func(_dbTransaction);
+
+                if (!_dbTransaction.HasCommited())
+                {
+                    _dbTransaction.Commit();
+                }
+            }
+            catch (Exception)
+            {
+                if (!_dbTransaction.HasReversed())
+                {
+                    _dbTransaction.Rollback();
+                }
+                throw;
+            }
+            finally
+            {
+                if (!alreadyOpen)
+                {
+                    if (_dbTransaction.GetConnection() != null)
+                        _dbTransaction.GetConnection().Close();
+                }
             }
         }
     }

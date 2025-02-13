@@ -1,8 +1,7 @@
 ﻿using DB.Query.Core.Annotations.Entity;
-using DB.Query.Tests.Domain.Databases;
 using System;
 
-namespace DB.Query.Tests.Domain
+namespace DB.Query.Tests.Domain.FinanceDB
 {
     [Table("Payment_Info")]
     public class PaymentInfo : FinanceDb

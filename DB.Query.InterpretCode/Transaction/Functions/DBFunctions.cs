@@ -3,7 +3,7 @@ using System;
 using DB.Query.Core.Models;
 using DB.Query.Utils.Helpers;
 
-namespace DB.Query.Core.Functions
+namespace DB.Query.InterpretCode.Transaction.Functions
 {
     public class DBFunctions
     {
