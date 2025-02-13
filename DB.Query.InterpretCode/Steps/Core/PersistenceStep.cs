@@ -11,7 +11,7 @@ using DB.Query.Utils.Extensions;
 
 namespace DB.Query.InterpretCode.Steps.Core
 {
-    public class PersistenceStep<TEntity> : DBQuery<TEntity>, IPersistenceStep where TEntity : EntityBase
+    public class PersistenceStep<TEntity> : DBQueryBuilder<TEntity>, IPersistenceStep where TEntity : EntityBase
     {
         /// <summary>
         ///     Retorna a querie montada

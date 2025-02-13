@@ -89,7 +89,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
                 AuditLogs auditoria = AuditService.GenerateInsertAudit<TEntity>(_entityContext,
                     useAuditLogStep.StepValue?.CodigoUsuario.ToString()); // Gera o log de auditoria.
 
-                _transaction.GetRepository<AuditLogs>().Insert(auditoria).Execute(); // Insere o log de auditoria.
+                _transaction.Query<AuditLogs>().Insert(auditoria).Execute(); // Insere o log de auditoria.
 
                 // Executa a ação associada ao log, se houver.
                 useAuditLogStep.StepValue?.Action?.Invoke(auditoria.Id);
@@ -134,7 +134,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
             if (useAuditLogStep != null && _useAuditLog
                 && typeof(AuditLogs) != typeof(TEntity) && _transaction.GetTransaction() != null)
             {
-                var sql = _transaction.GetRepository<TEntity>()
+                var sql = _transaction.Query<TEntity>()
                     .Select()
                     .GetQuery() + whereSql; // Gera a consulta de verificação de existência.
 
@@ -148,7 +148,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
                     AuditLogs auditoria = AuditService.GenerateInsertAudit<TEntity>(_entityContext,
                         useAuditLogStep.StepValue?.CodigoUsuario.ToString());
 
-                    _transaction.GetRepository<AuditLogs>().Insert(auditoria).Execute(); // Insere o log de auditoria.
+                    _transaction.Query<AuditLogs>().Insert(auditoria).Execute(); // Insere o log de auditoria.
 
                     // Executa a ação associada ao log, se houver.
                     useAuditLogStep.StepValue?.Action?.Invoke(auditoria.Id);

@@ -185,11 +185,11 @@ namespace DB.Query.InterpretCode.Transaction
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public virtual Repository<T> GetRepository<T>() where T : EntityBase
+        public virtual Query<T> Query<T>() where T : EntityBase
         {
-            var repository = Activator.CreateInstance<Repository<T>>();
-            repository.BindTransaction(this);
-            return repository;
+            var query = Activator.CreateInstance<Query<T>>();
+            query.BindTransaction(this);
+            return query;
         }
 
         /// <summary>
@@ -197,9 +197,9 @@ namespace DB.Query.InterpretCode.Transaction
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public virtual Repository<T> GetRepository<T>(string tableName) where T : EntityBase
+        public virtual Query<T> Query<T>(string tableName) where T : EntityBase
         {
-            var repository = Activator.CreateInstance<Repository<T>>();
+            var repository = Activator.CreateInstance<Query<T>>();
             repository.BindTransaction(this);
             return repository;
         }
@@ -373,7 +373,7 @@ namespace DB.Query.InterpretCode.Transaction
         /// <returns></returns>
         public void RestoreAuditLog<TEntity>(Guid id) where TEntity : EntityBase
         {
-            AuditLogs audit = this.GetRepository<AuditLogs>()
+            AuditLogs audit = this.Query<AuditLogs>()
                                 .Select()
                                 .Where(audit => audit.Id == id)
                                 .FirstOrDefault();

@@ -17,7 +17,7 @@ namespace DB.Query.InterpretCode.Steps.Repositories
     /// 
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class RepositoryBase<TEntity> : DBQuery<TEntity>, IRepositoryBase<TEntity> where TEntity : EntityBase
+    public class QueryBase<TEntity> : DBQueryBuilder<TEntity>, IQueryBase<TEntity> where TEntity : EntityBase
     {
         /// <summary>
         ///     Indica que a ação a ser realizada será um INSERT simples, sem verificações.

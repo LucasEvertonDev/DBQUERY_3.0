@@ -2,9 +2,9 @@
 
 namespace DB.Query
 {
-    public static class BootstrapModule
+    public static class DBQuery
     {
-        public static void UseDbQuery(string dbConnection, string auditLogsTable)
+        public static void Use(string dbConnection, string auditLogsTable = null)
         {
             DbQueryConfiguration.SqlConnection = dbConnection;
             DbQueryConfiguration.AuditLogsDatabase = auditLogsTable;

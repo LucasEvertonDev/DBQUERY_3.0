@@ -10,7 +10,7 @@ using DB.Query.InterpretCode.Steps.CustomSelect;
 
 namespace DB.Query.InterpretCode.Steps.Repositories.Interfaces
 {
-    public interface IRepositoryBase<TEntity> where TEntity : EntityBase
+    public interface IQueryBase<TEntity> where TEntity : EntityBase
     {
         void BindTransaction(DBTransaction dataBaseService);
         DeleteStep<TEntity> Delete();

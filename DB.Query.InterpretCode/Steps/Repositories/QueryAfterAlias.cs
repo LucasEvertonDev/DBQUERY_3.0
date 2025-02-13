@@ -3,7 +3,7 @@ using DB.Query.InterpretCode.Steps.Repositories.Interfaces;
 
 namespace DB.Query.InterpretCode.Steps.Repositories
 {
-    public class RepositoryAfterAlias<TEntity> : RepositoryBase<TEntity>, IRepository where TEntity : EntityBase
+    public class QueryAfterAlias<TEntity> : QueryBase<TEntity>, IQuery where TEntity : EntityBase
     {
         /// <summary>
         /// 

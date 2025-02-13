@@ -9,7 +9,7 @@
 
         public const string CONCAT_FUNCTION = "Concat";
 
-        public const string SQL_FUNCTION = "Sql";
+        public const string SQL_FUNCTION = "SQL";
 
         public const string CASE_SQL_FUNCTION = "CASE";
 
@@ -20,6 +20,8 @@
         public const string CONVERT_SQL_FUNCTION = "CONVERT";
 
         public const string CONCAT_SQL_FUNCTION = "CONCAT";
+
+        public const string SUM_SQL_FUNCTION = "SUM";
 
         public const string STRING_AGG_SQL_FUNCTION = "STRING_AGG";
 

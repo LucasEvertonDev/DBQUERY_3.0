@@ -7,7 +7,7 @@ using DB.Query.InterpretCode.Transaction;
 
 namespace DB.Query.Core
 {
-    public class DBQuery : DBFunctions
+    public class DBQueryTransaction : DBFunctions
     {
         /// <summary>
         ///  Variável geral no escopo da classe. Deve ser manipulada com cuidado foram do contexto de uma transaction 
@@ -19,7 +19,11 @@ namespace DB.Query.Core
         /// 
         /// </summary>
         /// <param name="transaction"></param>
-        public DBQuery(DBTransaction transaction)
+        public DBQueryTransaction(DBTransaction transaction)
+        {
+        }
+
+        public DBQueryTransaction()
         {
         }
 
@@ -163,7 +167,7 @@ namespace DB.Query.Core
         /// <typeparam name="T"></typeparam>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        protected T InstanceService<T>(DBTransaction transaction) where T : DBQuery
+        protected T InstanceService<T>(DBTransaction transaction) where T : DBQueryTransaction
         {
             var inst = Activator.CreateInstance<T>();
             inst.BindTransaction(transaction);

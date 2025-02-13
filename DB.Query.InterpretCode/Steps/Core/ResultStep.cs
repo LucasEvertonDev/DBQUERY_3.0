@@ -6,7 +6,7 @@ namespace DB.Query.InterpretCode.Steps.Core
     /// 
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class ResultStep<TEntity> : DBQuery<TEntity> where TEntity : EntityBase
+    public class ResultStep<TEntity> : DBQueryBuilder<TEntity> where TEntity : EntityBase
     {
         /// <summary>
         /// 

@@ -80,6 +80,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
             DBQueryConstants.CONVERT_SQL_FUNCTION,
             DBQueryConstants.STRING_AGG_SQL_FUNCTION,
             DBQueryConstants.CONCAT_SQL_FUNCTION,
+            DBQueryConstants.SUM_SQL_FUNCTION,
         };
 
 
@@ -134,6 +135,13 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
                     return  $"CONCAT({Expression.Lambda(arguments[0]).Compile().DynamicInvoke()}, {Expression.Lambda(arguments[1]).Compile().DynamicInvoke()})";
                 }
             },
+            {
+                DBQueryConstants.SUM_SQL_FUNCTION,
+                (arguments) =>
+                {
+                    return  $"SUM({Expression.Lambda(arguments[0]).Compile().DynamicInvoke()})";
+                }
+            }
         };
 
         /// <summary>

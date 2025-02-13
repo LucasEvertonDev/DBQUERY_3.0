@@ -24,6 +24,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB.Query.Tests", "DB.Query.Tests", "{4C45265C-57A8-4D80-910C-49A76056B97D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB.Query.CodeForge", "DB.Query.CodeForge", "{1A9D6E2A-F770-42D3-B27E-DEB6D4EEA8C2}"
+	ProjectSection(SolutionItems) = preProject
+		DB.Query\BootstrapModule.cs = DB.Query\BootstrapModule.cs
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB.Query.Tests.Domain", "DB.Query.Tests.Domain\DB.Query.Tests.Domain.csproj", "{67F2AE27-3AC0-40AA-87F2-33ED9FF127DB}"
 EndProject

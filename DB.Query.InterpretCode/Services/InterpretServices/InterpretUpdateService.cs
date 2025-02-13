@@ -100,7 +100,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
                     throw new Exception("Só é possível registrar log de auditoria para updates com a cláusula WHERE");
                 }
 
-                var sql = _transaction.GetRepository<TEntity>()
+                var sql = _transaction.Query<TEntity>()
                     .Select()
                     .GetQuery() + AddWhere(where.StepExpression);
 
@@ -111,7 +111,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
                 // Insere os logs de auditoria.
                 foreach (var auditoria in auditorias)
                 {
-                    _transaction.GetRepository<AuditLogs>().Insert(auditoria).Execute();
+                    _transaction.Query<AuditLogs>().Insert(auditoria).Execute();
 
                     useAuditLog.StepValue?.Action?.Invoke(auditoria.Id);
                 }
@@ -137,7 +137,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
             if (useAuditLog != null && _useAuditLog && _transaction.GetTransaction() != null)
             {
                 var whereStep = _levelModels.First(step => step.StepType == StepType.WHERE).StepExpression;
-                var sql = _transaction.GetRepository<TEntity>()
+                var sql = _transaction.Query<TEntity>()
                     .Select()
                     .GetQuery() + AddWhere(whereStep);
 
@@ -149,7 +149,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
                 {
                     var entity = new EntityAttributesModelFactory<TEntity>().InterpretEntity(_domain, true);
                     AuditLogs auditoria = AuditService.GenerateInsertAudit<TEntity>(_entityContext, useAuditLog.StepValue?.CodigoUsuario.ToString());
-                    _transaction.GetRepository<AuditLogs>().Insert(auditoria).Execute();
+                    _transaction.Query<AuditLogs>().Insert(auditoria).Execute();
                     useAuditLog.StepValue?.Action?.Invoke(auditoria.Id);
                 }
             }

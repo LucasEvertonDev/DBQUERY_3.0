@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace DB.Query.InterpretCode.Steps.Core
 {
-    public class DBQuery<TEntity> : DBFunctions, IDBQuery where TEntity : EntityBase
+    public class DBQueryBuilder<TEntity> : DBFunctions, IDBQuery where TEntity : EntityBase
     {
         protected List<DBQueryStepModel> _steps { get; set; }
         protected DBTransaction _transaction { get; set; }
         protected DBQueryLevelModelFactory _levelFactory { get; set; }
 
-        public DBQuery()
+        public DBQueryBuilder()
         {
             _transaction = new DBTransaction();
             _steps = new List<DBQueryStepModel>();
@@ -28,7 +28,7 @@ namespace DB.Query.InterpretCode.Steps.Core
         /// 
         /// </summary>
         /// <returns></returns>
-        protected TNextStep InstanceNextLevel<TNextStep>(DBQueryStepModel levelModel) where TNextStep : DBQuery<TEntity>
+        protected TNextStep InstanceNextLevel<TNextStep>(DBQueryStepModel levelModel) where TNextStep : DBQueryBuilder<TEntity>
         {
             var dbQuery = Activator.CreateInstance<TNextStep>();
             dbQuery._steps = _steps;

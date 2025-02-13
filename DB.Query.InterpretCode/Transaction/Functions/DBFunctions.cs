@@ -140,6 +140,20 @@ namespace DB.Query.Core.Functions
         }
 
         /// <summary>
+        /// Injeta a query assim como o sql
+        ///   $"SUM({value})";
+        /// </summary>
+        /// <returns></returns>
+        protected T SUM<T>(string value) => default;
+
+        /// <summary>
+        /// Injeta a query assim como o sql
+        ///   $"ISNULL({value}, {defaultValue})";
+        /// </summary>
+        /// <returns></returns>
+        protected string SUM(string value) => $"SUM({value})";
+
+        /// <summary>
         /// Função para aplicar o alias "AS"
         /// </summary>
         /// <returns></returns>
@@ -190,7 +204,7 @@ namespace DB.Query.Core.Functions
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
-        protected dynamic Sql(string sql)
+        protected dynamic SQL(string sql)
         {
             return null;
         }
@@ -200,7 +214,7 @@ namespace DB.Query.Core.Functions
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
-        protected T Sql<T>(string sql)
+        protected T SQL<T>(string sql)
         {
             return default;
         }

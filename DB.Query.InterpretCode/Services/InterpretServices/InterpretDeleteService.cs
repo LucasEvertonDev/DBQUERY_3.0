@@ -82,7 +82,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
                     throw new Exception("Só é possível registrar log de auditoria para updates com a cláusula WHERE");
                 }
 
-                var sql = _transaction.GetRepository<TEntity>()
+                var sql = _transaction.Query<TEntity>()
                     .Select()
                     .GetQuery() + AddWhere(where.StepExpression);
 
@@ -92,7 +92,7 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
 
                 foreach (var auditoria in auditorias)
                 {
-                    _transaction.GetRepository<AuditLogs>().Insert(auditoria).Execute(); // Insere o log de auditoria
+                    _transaction.Query<AuditLogs>().Insert(auditoria).Execute(); // Insere o log de auditoria
 
                     useAuditLog.StepValue?.Action?.Invoke(auditoria.Id); // Executa a ação associada ao log, se houver
                 }
