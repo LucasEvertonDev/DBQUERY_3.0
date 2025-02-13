@@ -10,10 +10,12 @@ namespace DB.Query.Cli
 
         // dotnet tool install --global --add-source ./nupkg dbquerycli
 
-        //dotnet tool list --global
+        //dotnet tool list --global 
+
+        //dotnet tool uninstall --global dbquerycli
         static void Main(string[] args)
         {
-            Console.WriteLine("teste");
+            Console.WriteLine("teste2");
         }
     }
 }

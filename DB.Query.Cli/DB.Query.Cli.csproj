@@ -8,5 +8,7 @@
 		<ToolCommandName>dbquerycli</ToolCommandName>
 		<PackageOutputPath>./nupkg</PackageOutputPath>
 	</PropertyGroup>
-	
+	<ItemGroup>
+	  <None Remove="Directory.Build.props" />
+	</ItemGroup>
 </Project>

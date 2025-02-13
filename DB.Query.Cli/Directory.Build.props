@@ -1,0 +1,5 @@
+<Project>
+  <ItemGroup>
+    <DotNetCliToolReference Include="dbquerycli" Version="1.0.0" />
+  </ItemGroup>
+</Project>
