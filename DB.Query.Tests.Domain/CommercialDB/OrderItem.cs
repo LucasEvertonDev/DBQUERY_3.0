@@ -4,7 +4,7 @@ using DB.Query.Core.Annotations.Entity;
 namespace DB.Query.Tests.Domain.CommercialDB
 {
     [Table("OrderItem")]
-    public class OrderItem : LogisticDB
+    public class OrderItem : CommercialDB
     {
         [PrimaryKey(Identity = true)]
         public int Id { get; set; }

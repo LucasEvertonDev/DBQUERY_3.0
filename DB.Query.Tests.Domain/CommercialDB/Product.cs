@@ -3,7 +3,7 @@
 namespace DB.Query.Tests.Domain.CommercialDB
 {
     [Table("Product")]
-    public class Product : LogisticDB
+    public class Product : CommercialDB
     {
         public int ProductId { get; set; }
 

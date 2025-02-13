@@ -32,7 +32,7 @@ namespace DB.Query.InterpretCode.Steps.CustomSelect
         /// <returns>
         ///     Retorno do tipo CustomSelectAfterTopStep, responsável por garantir o controle da próxima etapa. Impedindo que esse método seja novamente chamado na mesma operação.
         /// </returns>
-        public CustomSelectAfterTopStep<TEntity> Top(int top)
+        public new CustomSelectAfterTopStep<TEntity> Top(int top)
         {
             return InstanceNextLevel<CustomSelectAfterTopStep<TEntity>>(_levelFactory.PrepareTopStep(top));
         }

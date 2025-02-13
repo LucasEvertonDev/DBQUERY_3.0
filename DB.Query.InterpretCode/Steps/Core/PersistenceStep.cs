@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
 using DB.Query.InterpretCode.Services.InterpretServices;
 using DB.Query.InterpretCode.Services.Others;
@@ -8,6 +7,7 @@ using DB.Query.InterpretCode.Steps.Core.Interfaces;
 using DB.Query.Core.Entities;
 using DB.Query.Core.Enuns;
 using DB.Query.Utils.Extensions;
+using Microsoft.Data.SqlClient;
 
 namespace DB.Query.InterpretCode.Steps.Core
 {

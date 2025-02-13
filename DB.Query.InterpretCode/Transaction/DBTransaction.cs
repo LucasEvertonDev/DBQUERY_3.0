@@ -3,7 +3,6 @@ using DB.Query.InterpretCode.Services.InterpretServices;
 using DB.Query.InterpretCode.Services.Others;
 using SIGN.Query.Models.PersistenceContext.Entities.SignCi;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -15,6 +14,7 @@ using DB.Query.Core.Annotations;
 using DB.Query.Core.Entities;
 using DB.Query.Utils.Extensions;
 using DB.Query.InterpretCode.Factorys;
+using Microsoft.Data.SqlClient;
 
 namespace DB.Query.InterpretCode.Transaction
 {

@@ -19,7 +19,7 @@ namespace DB.Query.InterpretCode.Steps.Select
         /// <returns>
         ///     Retorno do tipo SelectAfterTopStep, responsável por garantir o controle da próxima etapa. Impedindo que esse método seja novamente chamado na mesma operação.
         /// </returns>
-        public SelectAfterTopStep<TEntity> Top(int top)
+        public new SelectAfterTopStep<TEntity> Top(int top)
         {
             return InstanceNextLevel<SelectAfterTopStep<TEntity>>(_levelFactory.PrepareTopStep(top));
         }

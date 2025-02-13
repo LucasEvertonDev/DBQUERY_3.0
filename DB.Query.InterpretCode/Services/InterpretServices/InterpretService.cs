@@ -1114,8 +1114,6 @@ namespace DB.Query.InterpretCode.Services.InterpretServices
                 // Para outras expressões, obtém a representação da propriedade.
                 return GetPropertyOfSingleExpression(parameters: parameters, expression: partExpression, hasParameter: false, useAlias: false);
             }
-
-            return string.Empty; // Retorna string vazia se não for possível determinar o valor.
         }
 
         /// <summary>

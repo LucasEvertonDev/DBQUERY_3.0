@@ -109,7 +109,7 @@ namespace DB.Query.Tests.InterpretCode
                     LEFT JOIN LogisticDB..ShipmentInfo ON Users.Id = ShipmentInfo.Id
                     INNER JOIN AppDb..Payment_Info ON Users.Id = Payment_Info.User_ID
                     INNER JOIN CommercialDB..Order ON Payment_Info.Order_ID = Order.Id
-                    INNER JOIN LogisticDB..OrderItem ON Order.Id = OrderItem.Id
+                    INNER JOIN CommercialDB..OrderItem ON Order.Id = OrderItem.Id
                 WHERE
                     (
                         (
@@ -156,7 +156,7 @@ namespace DB.Query.Tests.InterpretCode
                     LEFT JOIN LogisticDB..ShipmentInfo ON Users.Id = ShipmentInfo.Id
                     INNER JOIN AppDb..Payment_Info ON Users.Id = Payment_Info.User_ID
                     INNER JOIN CommercialDB..Order ON Payment_Info.Order_ID = Order.Id
-                    INNER JOIN LogisticDB..OrderItem ON Order.Id = OrderItem.Id
+                    INNER JOIN CommercialDB..OrderItem ON Order.Id = OrderItem.Id
                 WHERE
                     (
                         (
@@ -218,7 +218,7 @@ namespace DB.Query.Tests.InterpretCode
                     LEFT JOIN LogisticDB..ShipmentInfo ON Users.Id = ShipmentInfo.Id
                     INNER JOIN AppDb..Payment_Info ON Users.Id = Payment_Info.User_ID
                     INNER JOIN CommercialDB..Order ON Payment_Info.Order_ID = Order.Id
-                    INNER JOIN LogisticDB..OrderItem ON Order.Id = OrderItem.Id
+                    INNER JOIN CommercialDB..OrderItem ON Order.Id = OrderItem.Id
                 WHERE
                     (
                         (

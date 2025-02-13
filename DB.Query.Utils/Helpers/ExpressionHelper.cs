@@ -97,7 +97,6 @@ namespace DB.Query.Utils.Helpers
                 var left = FormatExpression(binary.Left, currentPrecedence);
                 var right = FormatExpression(binary.Right, currentPrecedence);
 
-                // Se a expressão original está envolta em parênteses, mantenha-os
                 bool hasExplicitParentheses = IsWrappedInParentheses(binary);
                 if (parentPrecedence > currentPrecedence || hasExplicitParentheses)
                     return $"({left} {GetOperator(binary.NodeType)} {right})";
