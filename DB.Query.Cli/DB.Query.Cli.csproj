@@ -11,4 +11,13 @@
 	<ItemGroup>
 	  <None Remove="Directory.Build.props" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Properties\PublishProfiles\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="System.CodeDom" Version="9.0.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\DB.Query.Utils\DB.Query.Utils.csproj" />
+	</ItemGroup>
 </Project>
