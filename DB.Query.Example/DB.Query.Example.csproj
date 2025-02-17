@@ -19,5 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Entities\" />
+    <Folder Include="Storeds\" />
   </ItemGroup>
 </Project>

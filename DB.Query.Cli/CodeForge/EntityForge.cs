@@ -49,16 +49,8 @@ namespace DB.Query.Cli.CodeForge
 
             IncludeSnippet(codeClass, tableDetails);
 
-            var entryAssembly = Assembly.GetEntryAssembly();
-            var mainNamespace = entryAssembly.GetTypes()
-                .Select(t => t.Namespace)
-                .Distinct()
-                .OrderBy(n => n)
-                .FirstOrDefault();
+            CodeNamespace codeNamespace = new CodeNamespace($"DB.Query.{_database}.Entities");
 
-            Console.WriteLine("O namespace principal do projeto é: " + mainNamespace);
-
-            CodeNamespace codeNamespace = new CodeNamespace(mainNamespace);
             CodeNamespace importsNamespace = new CodeNamespace
             {
                 Imports =

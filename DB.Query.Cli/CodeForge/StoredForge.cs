@@ -39,7 +39,7 @@ namespace DB.Query.Cli.CodeForge
                 Directory.CreateDirectory(path);
             }
 
-            using (StreamWriter sw = new StreamWriter(Path.Combine(path, $"{_tableName}.cs"), false))
+            using (StreamWriter sw = new StreamWriter(Path.Combine(path, $"{_className}.cs"), false))
             {
                 sw.Write(classe);
                 sw.Close();

@@ -2,7 +2,7 @@
   "profiles": {
     "DB.Query.Cli": {
       "commandName": "Project",
-      "commandLineArgs": "--type table --database SignEst --tableName EstItens --className EstItens --normalizeColumns true"
+      "commandLineArgs": "--type stored --database SignEst --tableName PS_Consulta_Invoice --className SPConsultaInvoices --normalizeColumns true"
     }
   }
 }

@@ -22,7 +22,7 @@ namespace DB.Query.Cli.CodeForge.Stored
 
         public override CodeCompileUnit Init()
         {
-            _tableName += "Parameters";
+            _className += "Parameters";
 
             CodeCompileUnit compileUnit = new CodeCompileUnit();
 
@@ -53,23 +53,16 @@ namespace DB.Query.Cli.CodeForge.Stored
 
             codeClass.Members.Add(member);
 
-            var entryAssembly = Assembly.GetEntryAssembly();
-            var mainNamespace = entryAssembly.GetTypes()
-                .Select(t => t.Namespace)
-                .Distinct()
-                .OrderBy(n => n)
-                .FirstOrDefault();
-
-            Console.WriteLine("O namespace principal do projeto é: " + mainNamespace);
-
-            CodeNamespace codeNamespace = new CodeNamespace(mainNamespace);
+            CodeNamespace codeNamespace = new CodeNamespace($"DB.Query.{_database}.Storeds");
             CodeNamespace importsNamespace = new CodeNamespace
             {
                 Imports =
                 {
                     new CodeNamespaceImport($"DB.Query.Core.Annotations.Entity"),
                     new CodeNamespaceImport($"DB.Query.Core.Annotations"),
-                    new CodeNamespaceImport($"DB.Query.Core.Entities")
+                    new CodeNamespaceImport($"DB.Query.Core.Entities"),
+                    new CodeNamespaceImport("DB.Query.Core.Annotations.StoredProcedure"),
+                    new CodeNamespaceImport("DB.Query.Core.Models")
                 }
             };
             codeNamespace.Types.Add(codeClass);

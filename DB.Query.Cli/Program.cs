@@ -83,7 +83,11 @@ class Program
             }
             else if (type.Equals("stored"))
             {
-                // Adicione sua lógica aqui para procedimentos armazenados
+                var forge = new StoredForge(configuration.GetSection("ConnectionStrings:DefaultConnection").Value, database, tableName, className, normalizeColumns);
+
+                forge.Init();
+
+                Console.WriteLine("Arquivo gerado com sucesso.");
             }
 
         }, type, database, tableName, className, normalizeColumns);

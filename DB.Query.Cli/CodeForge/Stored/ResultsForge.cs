@@ -25,7 +25,7 @@ namespace DB.Query.Cli.CodeForge.Stored
         {
             try
             {
-                _tableName += "Result";
+                _className += "Result";
 
                 CodeCompileUnit compileUnit = new CodeCompileUnit();
 
@@ -55,28 +55,19 @@ namespace DB.Query.Cli.CodeForge.Stored
 
                 codeClass.Members.Add(member);
 
-                var entryAssembly = Assembly.GetEntryAssembly();
-                var mainNamespace = entryAssembly.GetTypes()
-                    .Select(t => t.Namespace)
-                    .Distinct()
-                    .OrderBy(n => n)
-                    .FirstOrDefault();
-
-                Console.WriteLine("O namespace principal do projeto é: " + mainNamespace);
-
-                CodeNamespace codeNamespace = new CodeNamespace(mainNamespace);
-                CodeNamespace importsNamespace = new CodeNamespace
-                {
-                    Imports =
-                {
-                    new CodeNamespaceImport($"DB.Query.Core.Annotations.Entity"),
-                    new CodeNamespaceImport($"DB.Query.Core.Annotations"),
-                    new CodeNamespaceImport($"DB.Query.Core.Entities")
-                }
-                };
+                CodeNamespace codeNamespace = new CodeNamespace($"DB.Query.{_database}.Storeds");
+                //CodeNamespace importsNamespace = new CodeNamespace
+                //{
+                //    Imports =
+                //    {
+                //        new CodeNamespaceImport($"DB.Query.Core.Annotations.Entity"),
+                //        new CodeNamespaceImport($"DB.Query.Core.Annotations"),
+                //        new CodeNamespaceImport($"DB.Query.Core.Entities")
+                //    }
+                //};
                 codeNamespace.Types.Add(codeClass);
 
-                compileUnit.Namespaces.Add(importsNamespace);
+                //compileUnit.Namespaces.Add(importsNamespace);
                 compileUnit.Namespaces.Add(codeNamespace);
 
                 return compileUnit;
