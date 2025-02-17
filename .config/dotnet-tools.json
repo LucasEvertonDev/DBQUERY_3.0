@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "dbquerycli": {
+      "version": "1.12.0",
+      "commands": [
+        "dbquerycli"
+      ],
+      "rollForward": false
+    }
+  }
+}

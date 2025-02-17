@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DB.Query.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "--type table --database SignEst --tableName EstItens --className EstItens --normalizeColumns true"
+    }
+  }
+}

@@ -194,7 +194,6 @@ namespace DB.Query.Core
         }
     }
 
-
     public class DBQuery
     {
         /// <summary>
