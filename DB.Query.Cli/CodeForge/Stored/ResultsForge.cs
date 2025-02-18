@@ -3,7 +3,6 @@ using System;
 using System.CodeDom;
 using System.Data;
 using System.Linq;
-using System.Reflection;
 
 namespace DB.Query.Cli.CodeForge.Stored
 {
@@ -20,8 +19,13 @@ namespace DB.Query.Cli.CodeForge.Stored
             _className = className;
             _normalizeColumns = normalizeColumns;
         }
-
         public override CodeCompileUnit Init()
+        {
+            return null;
+        }
+
+
+        public CodeTypeDeclaration GetResultClass()
         {
             try
             {
@@ -55,22 +59,7 @@ namespace DB.Query.Cli.CodeForge.Stored
 
                 codeClass.Members.Add(member);
 
-                CodeNamespace codeNamespace = new CodeNamespace($"DB.Query.{_database}.Storeds");
-                //CodeNamespace importsNamespace = new CodeNamespace
-                //{
-                //    Imports =
-                //    {
-                //        new CodeNamespaceImport($"DB.Query.Core.Annotations.Entity"),
-                //        new CodeNamespaceImport($"DB.Query.Core.Annotations"),
-                //        new CodeNamespaceImport($"DB.Query.Core.Entities")
-                //    }
-                //};
-                codeNamespace.Types.Add(codeClass);
-
-                //compileUnit.Namespaces.Add(importsNamespace);
-                compileUnit.Namespaces.Add(codeNamespace);
-
-                return compileUnit;
+                return codeClass;
             }
             catch (Exception ex)
             {

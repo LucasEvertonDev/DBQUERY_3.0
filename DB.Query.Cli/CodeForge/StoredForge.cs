@@ -1,6 +1,5 @@
 ﻿using DB.Query.Cli.CodeForge.Stored;
 using Microsoft.CSharp;
-using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.IO;
@@ -29,8 +28,6 @@ namespace DB.Query.Cli.CodeForge
             var result = new ResultsForge(_conexao, _database, _tableName, _className, _normalizeColumns);
 
             classe = GetCode(parameters.Init());
-            classe += Environment.NewLine;
-            classe += GetCode(result.Init());
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Storeds");
 

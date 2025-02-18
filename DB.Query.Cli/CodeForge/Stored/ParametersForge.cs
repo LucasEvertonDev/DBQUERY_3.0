@@ -67,6 +67,15 @@ namespace DB.Query.Cli.CodeForge.Stored
             };
             codeNamespace.Types.Add(codeClass);
 
+            var resultforge = new ResultsForge(_conexao, _database, _tableName, _className, _normalizeColumns);
+
+            var codClassResult = resultforge.GetResultClass();
+
+            if (codClassResult is not null)
+            {
+                codeNamespace.Types.Add(codClassResult);
+            }
+
             compileUnit.Namespaces.Add(importsNamespace);
             compileUnit.Namespaces.Add(codeNamespace);
 
