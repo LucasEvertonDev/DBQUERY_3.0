@@ -67,7 +67,7 @@ namespace DB.Query.Cli.CodeForge.Stored
             };
             codeNamespace.Types.Add(codeClass);
 
-            var resultforge = new ResultsForge(_conexao, _database, _tableName, _className, _normalizeColumns);
+            var resultforge = new ResultsForge(_conexao, _database, _tableName, _className.Replace("Parameters", ""), _normalizeColumns);
 
             var codClassResult = resultforge.GetResultClass();
 

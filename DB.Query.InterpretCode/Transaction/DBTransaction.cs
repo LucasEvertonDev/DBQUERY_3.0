@@ -275,7 +275,7 @@ namespace DB.Query.InterpretCode.Transaction
         /// </summary>
         /// <param name="storedProcedureBase"></param>
         /// <returns></returns>
-        public virtual DataTable ExecuteSql(StoredProcedureBase storedProcedureBase)
+        public virtual DataTable ExecuteStored(StoredProcedureBase storedProcedureBase)
         {
             var command = CreateStoredProcedureCommand(storedProcedureBase);
             try
@@ -294,7 +294,7 @@ namespace DB.Query.InterpretCode.Transaction
         /// </summary>
         /// <param name="storedProcedureBase"></param>
         /// <returns></returns>
-        public virtual List<T> ExecuteSql<T>(StoredProcedureBase storedProcedureBase)
+        public virtual List<T> ExecuteStored<T>(StoredProcedureBase storedProcedureBase)
         {
             var command = CreateStoredProcedureCommand(storedProcedureBase);
             try
